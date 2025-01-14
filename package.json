@@ -20,7 +20,8 @@
     "pg": "^8.13.1",
     "pg-hstore": "^2.3.4",
     "prisma": "^6.2.1",
-    "sequelize": "^6.37.5"
+    "sequelize": "^6.37.5",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
