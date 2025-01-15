@@ -6,8 +6,12 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
     const { name, email, password } = req.body;
     const user = await userService.createUser({ name, email, password });
     res.status(201).json(user);
-  } catch (error) {
-    res.status(500).json({ error: error instanceof Error ? error.message : "Unknown error" });
+  } catch (error: any) {
+    if (error.message === 'Email already exists') {
+      res.status(400).json({ error: error.message });
+    } else {
+      res.status(500).json({ error: 'Internal server error' });
+    }
   }
 };
 

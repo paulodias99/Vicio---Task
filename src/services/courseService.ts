@@ -1,18 +1,11 @@
-import prisma from '../config/prisma';
-import { Course } from '../models/course';
+import CourseRepository from '../repositories/courseRepository';
 
-export const createCourse = async (data: Omit<Course, 'id' | 'createdAt'>): Promise<Course> => {
-  const course = await prisma.course.create({
-    data,
-  });
-
-  return course;
+const createCourse = async (data: { title: string; description: string; hours: number }) => {
+  return CourseRepository.create(data);
 };
 
-export const listCourses = async (): Promise<Course[]> => {
-  const courses = await prisma.course.findMany();
-  return courses;
+const listCourses = async () => {
+  return CourseRepository.findAll();
 };
-
 
 export default { createCourse, listCourses };
