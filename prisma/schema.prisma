@@ -14,3 +14,11 @@ model User {
   password  String   @db.VarChar(255)
   createdAt DateTime @default(now()) @db.Timestamp(6)
 }
+
+model Course {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  hours       Int
+  createdAt   DateTime @default(now())
+}
