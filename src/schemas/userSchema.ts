@@ -7,5 +7,5 @@ export const createUserSchema = z.object({
 });
 
 export const getUserByIdSchema = z.object({
-  id: z.string().regex(/^\d+$/, "ID must be a numeric string"),
+  id: z.coerce.number(),
 });

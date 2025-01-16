@@ -1,7 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import enrollmentService from '../services/enrollmentService';
+import { CreateEnrollmentRequest } from "../@types/types";
 
-export const createEnrollment = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const createEnrollment = async (req: CreateEnrollmentRequest, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { userId, courseId } = req.body;
     const enrollment = await enrollmentService.createEnrollment({ userId, courseId });
@@ -18,7 +19,6 @@ export const getEnrollmentsByUserId = async (req: Request, res: Response, next: 
 
     if (isNaN(userId)) {
       res.status(400).json({ error: 'Invalid userId parameter' });
-      return;
     }
 
     const enrollments = await enrollmentService.getEnrollmentsByUserId(userId, timezoneOffset);
