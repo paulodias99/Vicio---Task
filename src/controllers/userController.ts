@@ -21,6 +21,7 @@ export const getUserById = async (req: Request, res: Response): Promise<void> =>
     const { id } = req.params;
     const timezoneOffset = parseInt(req.headers['x-timezone-offset'] as string, 10) || 0;
     const user = await userService.getUserById(Number(id), timezoneOffset);
+    
     if (!user) {
       res.status(404).json({ error: "User not found" });
     }

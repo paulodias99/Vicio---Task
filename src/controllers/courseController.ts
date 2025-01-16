@@ -13,7 +13,7 @@ export const createCourse = async (req: CreateCourseRequest, res: Response): Pro
     });
 
     res.status(201).json(course);
-  } catch (error) {
+  } catch {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
@@ -23,7 +23,7 @@ export const listCourses = async (req: Request, res: Response): Promise<void> =>
     const courses = await courseService.listCourses();
 
     res.status(200).json(courses);
-  } catch (error) {
+  } catch {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
