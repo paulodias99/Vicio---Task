@@ -217,6 +217,11 @@ Headers: { "x-timezone-offset": "180" }
 - Escolhi o TypeScript pela segurança adicional oferecida pela tipagem estática.
 - Trabalhar em equipe torna a utilização do TypeScript praticamente obrigatória, uma vez que proporciona uma manutenção do código mais eficiente e reduz erros em tempo de execução.
 
+### **CORS: Configuração para Cross-Origin Requests**
+- Adicionei o CORS para permitir que o frontend e o backend possam se comunicar sem restrições.
+- Como a aplicação possui um frontend em React (http://localhost:5173) e um backend em Express (http://localhost:3000), sem a configuração do CORS, as requisições HTTP do frontend para o backend seriam bloqueadas pelo navegador devido à política de mesma origem.
+- O front-end do projeto está nesse repositório: https://github.com/paulodias99/Vicio---Task---Front
+
 ---
 
 ## **Padronização do Código**
