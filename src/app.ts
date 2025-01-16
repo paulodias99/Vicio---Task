@@ -1,13 +1,19 @@
 import express from 'express';
-import dotenv from 'dotenv';
+import cors from 'cors';
 import userRoutes from './routes/userRoutes';
 import courseRoutes from './routes/courseRoutes';
 import enrollmentRoutes from './routes/enrollmentRoutes';
 
-dotenv.config();
-
 const app = express();
+
+app.use(cors({
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-timezone-offset']
+}));
+
 app.use(express.json());
+
 app.use('/api', userRoutes);
 app.use('/api', courseRoutes);
 app.use('/api', enrollmentRoutes);
